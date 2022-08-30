@@ -1,15 +1,15 @@
 ﻿//Найходим введеное число и выдаем его позицию.
 
 Console.WriteLine("Введите размер двумерного массива: ");
-Console.WriteLine("Введите x: ");
+Console.WriteLine("Введите i: ");
 int x = int.Parse(Console.ReadLine());
-Console.WriteLine("Введите y: ");
+Console.WriteLine("Введите j: ");
 int y = int.Parse(Console.ReadLine());
 int[,] matrix = new int[x, y];
 Console.WriteLine("Введите искомое число: ");
 int z = int.Parse(Console.ReadLine());
 
-void FillAray(int[,] one)
+void FillArray(int[,] one)
 {
     for (int i = 0; i < one.GetLength(0); i++)
     {
@@ -20,7 +20,7 @@ void FillAray(int[,] one)
     }
 }
 
-void PrintAray(int[,] two)
+void PrintArray(int[,] two)
 {
     for (int i = 0; i < two.GetLength(0); i++)
     {
@@ -49,8 +49,8 @@ void FindNumber(int[,] three, int find)
     Console.WriteLine("В данном массиве нет даного числа. ");
 }
 
-FillAray(matrix);
-PrintAray(matrix);
+FillArray(matrix);
+PrintArray(matrix);
 Console.WriteLine();
 FindNumber(matrix, z);
 
