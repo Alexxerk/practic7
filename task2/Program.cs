@@ -58,3 +58,4 @@ PrintArray(array);
 Console.WriteLine();
 FindArithmeticMean(array, arithmeticMean, miniArray);
 
+
