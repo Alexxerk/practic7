@@ -1,19 +1,30 @@
 ﻿//В прямоугольной матрице найти строку с наименьшей суммой элементов.
+
+/* Квадратом называется прямоугольник, у которого все стороны равны.
+Свойства квадрата. Квадрату присущи все свойства параллелограмма.
+Квадрат можно считать ромбом с прямыми углами или прямоугольником с равными сторонами, 
+поэтому квадрат обладает всеми свойствами ромба и прямоугольника. */
+
 Console.WriteLine("Введите размер массива: ");
 int x = int.Parse(Console.ReadLine());
 int y = int.Parse(Console.ReadLine());
+
+//if(x == y)
+//{
+//    Console.WriteLine("Вы ввели не коректные параметры массива! ");
+//   return;
+//}
+
 int[]array = new int[x];
-int{,} matrix = new int[x, y];
+int[,] matrix = new int[x, y];
 Console.WriteLine("Введите минимальное число массива: ");
 int min = int.Parse(Console.ReadLine());
 Console.WriteLine("Введите максимальное число массива: ");
 int max = int.Parse(Console.ReadLine());
 int summa = 0;
+int newMin = 0;
 
-if(x == y)
-{
-    Console.WriteLine("Вы ввели не корректный маштаб массива(размер строк и столбов должен отличаться)! ");
-}
+
 
 int[,] CreateMatrix(int length, int width, int minimum, int maximum)
 {
@@ -39,34 +50,34 @@ int[] SumEveryColumns (int[,] one, int[] two)
 {
     for (int i = 0; i < one.GetLength(0); i++)
     {
+        summa = 0;
         for (int j = 0; j < one.GetLength(1); j++)
         {
             summa = summa + one[i, j];
         }
         two[i] = summa;
+        Console.WriteLine(two[i]);
     }
     return two;
 }
 
-void SearchMinSum (int[] one)
+void SearchMinSum (int[] one, int min1)
 {
-    int min = one[0];
-    for (int i = 1; i < x; i++)
+    min1 = one[0];
+    for (int k = 0; k < x; k++)
     {
-        if(min1 < one[i])
+        if (min1 > one[k])
         {
-            i++;
+            min1 = one[k]; 
+            
         }
-        else
-        {
-            min1 = one[i];   
-        }
-    }
+    }  
+
     for (int i = 0; i < x; i++)
     {
-        if(min = one[i])
+        if(min1 == one[i])
         {
-            Console.WriteLine("Строка с минимальной суммой == " + min + " находится на позиции индекса == " + i);
+            Console.WriteLine("Строка с минимальной суммой == " + min1 + " находится на позиции индекса == " + i);
             break;
         } 
     }
@@ -76,7 +87,7 @@ CreateMatrix(x, y, min, max);
 PrintMatrix(matrix);
 Console.WriteLine();
 SumEveryColumns(matrix, array);
-SearchMinSum(array);
+SearchMinSum(array, newMin);
 
 
 
